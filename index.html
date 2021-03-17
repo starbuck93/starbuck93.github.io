@@ -25,19 +25,6 @@
         padding-top: 5rem;
         background-color: #c9d7ca;
       }
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
       td {
         padding: .5rem;
         font-size: larger;
@@ -85,13 +72,17 @@
           <a class="nav-link active" aria-current="page" href="#">Baby Starbuck</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://www.babylist.com/Baby-starbuck">REGISTRY</a>
+          <span tabindex="0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="We're almost done!">
+            <a class="nav-link disabled" href="https://www.babylist.com/Baby-starbuck">REGISTRY</a>
+          </span>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://photos.app.goo.gl/VJfijddShMvZ1xw9A">PICTURES</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">STORY</a>
+          <span tabindex="0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="We're almost done!">
+            <a class="nav-link disabled" href="/story">STORY</a>
+          </span>
         </li>
       </ul>
     </div>
@@ -232,7 +223,14 @@
 
 
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        // init tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
 
+    </script>
       
   </body>
 </html>
