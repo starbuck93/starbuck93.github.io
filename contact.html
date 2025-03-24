@@ -15,7 +15,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Starbuck Family</title>
+    <title>Contact Us</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -25,39 +25,20 @@
         padding-top: 5rem;
         background-color: #c9d7ca;
       }
-      td {
-        padding: .5rem;
-        font-size: larger;
-      }
-      th {
-        font-size: larger;
-      }
       .add-radius{
         border-radius: 1rem;
       }
-      .img-container {
-        position: relative;
-        text-align: center;
-        color: white;
-      }
-      .caption {
-        position: absolute;
-        bottom: -7rem;
-        left: 4.5rem;
-        background-color: #80808080;
-        font-size: small;
-        }
-      .feet {
-        max-width: 2rem;
-        height: auto;
+      .password-field {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
       }
     </style>
 
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Satisfy&display=swap" rel="stylesheet">
-    <script defer src="https://a.starbuckstech.com/script.js" data-website-id="bcd6f877-3c96-48f9-84ba-9eb67c5864a2"></script>
-  </head>
+    <script defer src="https://a.starbuckstech.com/script.js" data-website-id="bcd6f877-3c96-48f9-84ba-9eb67c5864a2"></script>  </head>
   <body>
     
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #485f55;">
@@ -69,14 +50,11 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault" style="font-family: 'Raleway', sans-serif; font-size: 0.8rem;">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Baby Starbuck</a>
+          <a class="nav-link active" aria-current="page" href="/">Baby Starbuck</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="/story">STORY</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="https://wishlist.com/l/gZjr9x">1ST BDAY WISHLIST</a>
-        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="https://www.babylist.com/Baby-starbuck">(OLD) REGISTRY</a>
         </li>
@@ -92,38 +70,20 @@
 </nav>
 
 <main class="container">
+    <div class="starter-template text-center">
+        <h1>Contact Us</h1>
+        <p>This page contains contact information that is protected by a password.</p>
 
-  <div class="starter-template text-center">
-    <div class="d-flex flex-wrap flex-row justify-content-center align-self-center">
-      <div class="d-flex flex-column m-2" style="color: #333333">
-        <h4 class="mx-auto" style="font-family: 'Raleway', sans-serif;margin-bottom: -.1rem;">THE</h4>
-        <h1 class="mx-auto" style="font-family: 'Satisfy', cursive; font-size: 4rem;">Starbucks</h1>
-        <img class="mx-auto mb-3" src="img/leafygreens.svg" style="max-width: 10rem; margin-top: -.5rem;">
-        <picture>
-          <!-- <source srcset="img/family.jxl" type="image/jxl"> -->
-          <img class="mx-auto add-radius" src="img/family.jpg" style="max-width: 20rem;">
-        </picture>
-      </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" class="form-control password-field" id="password">
+        </div>
+        <button type="button" class="btn btn-primary" id="decryptButton">Decrypt</button>
+
+        <div id="contactInfo" class="mt-3"></div>
     </div>
-
-
-    <div style="max-width: 50rem; display:inline-block; color: #333333" class="my-3">
-      Check out our "Story" page and we'll update it as often as we remember to!
-    </div>
-  </div>
-  <div class="mb-5"></div>
-</main><!-- /.container -->
-
-
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script>
-        // init tooltips
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-
-    </script>
-      
-  </body>
+</main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/contact.js"></script>
+</body>
 </html>
