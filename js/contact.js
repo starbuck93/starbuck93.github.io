@@ -3,7 +3,7 @@ const ciphertext = "U2FsdGVkX19puVeJZeMCWYayHr2jp8rBMYFXDgG9eegPWN7OaSwgHDguYq0v
 
 
 
-function decryptContactInfo(password) {
+function decryptContactInfo(password, fromURL = false) {
     try {
         const bytes = CryptoJS.AES.decrypt(ciphertext, password);
         const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
@@ -13,7 +13,6 @@ function decryptContactInfo(password) {
             html += `<div class="card m-2" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">${person.Name}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Contact Information</h6>
                             <p class="card-text">
                                 Email: <a href="mailto:${person.Email}">${person.Email}</a><br>
                                 Cell Phone: <a href="tel:${person["Cell Phone"]}">${person["Cell Phone"]}</a>
@@ -24,6 +23,13 @@ function decryptContactInfo(password) {
         html += '</div>';
 
         document.getElementById('contactInfo').innerHTML = html;
+
+        // if (fromURL) {
+            document.getElementById('password').style.display = 'none';
+            document.getElementById('decryptButton').style.display = 'none';
+            document.querySelector('.mb-3').style.display = 'none'; // Hide the entire div containing label and input
+            document.getElementById('contact-protected').style.display = 'none';
+        // }
 
     } catch (error) {
         document.getElementById('contactInfo').innerHTML = '<p style="color:red;">Incorrect password.</p>';
@@ -43,7 +49,7 @@ function getParameterByName(name, url) {
 document.addEventListener('DOMContentLoaded', function() {
     const passwordFromURL = getParameterByName('pass');
     if (passwordFromURL) {
-        decryptContactInfo(passwordFromURL);
+        decryptContactInfo(passwordFromURL, true);
     }
 
     document.getElementById('decryptButton').addEventListener('click', function() {
